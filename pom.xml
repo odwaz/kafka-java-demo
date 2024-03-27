@@ -72,6 +72,18 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+            <groupId>io.takari</groupId>
+            <artifactId>maven-wrapper-plugin</artifactId>
+            <version>0.6.5</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>wrap</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
 		</plugins>
 	</build>
 
