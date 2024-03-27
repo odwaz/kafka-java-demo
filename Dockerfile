@@ -4,6 +4,10 @@ FROM alpine:latest AS builder
 # Install Git
 RUN apk --no-cache add git
 
+
+# Install Maven
+RUN apk update && \
+    apk add --no-cache maven
 # Clone the Git repository into a temporary directory
 WORKDIR /tmp
 RUN git clone https://github.com/odwaz/kafka-java-demo.git
@@ -12,8 +16,7 @@ RUN git clone https://github.com/odwaz/kafka-java-demo.git
 WORKDIR /tmp/kafka-java-demo
 
 # Install Maven
-RUN apt-get update && \
-    apt-get install -y maven
+
 
 # Build your application or perform any necessary setup
 RUN mvn package
