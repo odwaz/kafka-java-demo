@@ -12,7 +12,7 @@ RUN git clone https://github.com/odwaz/kafka-java-demo.git
 WORKDIR /tmp/kafka-java-demo
 
 # Build your application or perform any necessary setup
-RUN maven package
+RUN mvn package
 
 # Now create the final image with just the built artifact
 FROM openjdk:8-jdk-alpine
