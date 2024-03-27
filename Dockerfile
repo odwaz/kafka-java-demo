@@ -1,3 +1,24 @@
+# Use a base image with necessary tools for fetching the Git repository
+FROM alpine:latest AS builder
+
+# Install Git
+RUN apk --no-cache add git
+
+# Clone the Git repository into a temporary directory
+WORKDIR /tmp
+RUN git clone https://github.com/odwaz/kafka-java-demo.git
+
+# Switch to the cloned repository directory
+WORKDIR /tmp/kafka-java-demo
+
+# Build your application or perform any necessary setup
+RUN maven package
+
+# Now create the final image with just the built artifact
 FROM openjdk:8-jdk-alpine
-COPY target/kafka-java-demo-1.0-SNAPSHOT.jar kafka-java-demo.jar
-ENTRYPOINT ["java","-jar","/kafka-java-demo.jar"]
+
+# Copy the built artifact from the builder stage into the final image
+COPY --from=builder /tmp/kafka-java-demo/target/kafka-java-demo-1.0-SNAPSHOT.jar /app/kafka-java-demo.jar
+
+# Define the entrypoint
+ENTRYPOINT ["java", "-jar", "/app/kafka-java-demo.jar"]
