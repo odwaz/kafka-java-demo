@@ -58,32 +58,30 @@
 			<artifactId>spring-kafka-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-wrapper-plugin -->
+<dependency>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-wrapper-plugin</artifactId>
+    <version>3.2.0</version>
+</dependency>
+
 	</dependencies>
 <repositories>
         <repository>
             <id>confluent</id>
             <url>https://packages.confluent.io/maven/</url>
         </repository>
+
+		<repository>
+        <id>central</id>
+        <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
     </repositories>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-            <groupId>io.takari</groupId>
-            <artifactId>maven-wrapper-plugin</artifactId>
-            <version>0.6.5</version>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>wrap</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+			
 		</plugins>
 	</build>
 
