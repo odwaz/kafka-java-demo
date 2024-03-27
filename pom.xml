@@ -58,7 +58,6 @@
 			<artifactId>spring-kafka-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-wrapper-plugin -->
 <dependency>
     <groupId>org.apache.maven.plugins</groupId>
@@ -81,6 +80,10 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 			
 		</plugins>
 	</build>
