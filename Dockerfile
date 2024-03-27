@@ -11,6 +11,10 @@ RUN git clone https://github.com/odwaz/kafka-java-demo.git
 # Switch to the cloned repository directory
 WORKDIR /tmp/kafka-java-demo
 
+# Install Maven
+RUN apt-get update && \
+    apt-get install -y maven
+
 # Build your application or perform any necessary setup
 RUN mvn package
 
