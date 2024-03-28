@@ -26,6 +26,6 @@ FROM openjdk:8-jdk-alpine
 
 # Copy the built artifact from the builder stage into the final image
 COPY --from=builder /tmp/kafka-java-demo/target/kafka-java-demo-1.0-SNAPSHOT.jar /app/kafka-java-demo.jar
-
+COPY --from=builder /tmp/yourrepository/target/kafka-java-demo-1.0-SNAPSHOT.jar /app/kafka-java-demo.jar
 # Define the entrypoint
 ENTRYPOINT ["java", "-jar", "/app/kafka-java-demo.jar"]
